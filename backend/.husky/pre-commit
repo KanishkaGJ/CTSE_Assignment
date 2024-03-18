@@ -1,0 +1,21 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "\n Checking format, lint and types in your project before committing"
+
+# Check Prettier standards
+# npm run check-format ||
+# (
+#     echo "\n Prettier Check Failed.\n Run  npm run format, add changes and try commit again.\n";
+#     false;
+# )
+
+# Check ESLint Standards
+yarn run lint-staged ||
+(
+    echo "\n ESLint Check Failed. \n Make the required changes listed above, add changes and try to commit again.\n"
+    false;
+)
+
+# If everything passes... Now we can commit
+echo "Build is completed... I am committing this now. \n"
