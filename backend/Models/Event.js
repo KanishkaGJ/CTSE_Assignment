@@ -24,6 +24,10 @@ const eventSchema = new Schema({
         type: Date,
         required: true
     },
+    date:{
+        type: Date,
+        required: true
+    }
 })
 
 const Event = mongoose.model("Event", eventSchema);

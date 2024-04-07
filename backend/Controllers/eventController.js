@@ -3,14 +3,15 @@ const Event = require("../Models/Event");
 
 //insert new user
 const addNewEvent = async(req, res)=>{
-    const {title, description, host, startTime, endTime} = req.body;
+    const {title, description, host, startTime, endTime, date} = req.body;
 
     const newEvent = new Event({
         title, 
         description,
         host,
         startTime,
-        endTime
+        endTime,
+        date
     });
 
     newEvent.save().then(()=>{
@@ -48,14 +49,15 @@ const getEventById = async(req, res)=>{
 const updateEvent = async(req, res)=>{
     let eventId = req.params.id;
 
-    const {title, description, host, startTime, endTime} = req.body;
+    const {title, description, host, startTime, endTime, date} = req.body;
 
     const updateEvent = {
         title, 
         description,
         host,
         startTime,
-        endTime
+        endTime,
+        date
     }
 
     //check if the event to be updated exists
