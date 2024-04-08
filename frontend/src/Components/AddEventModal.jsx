@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import './css/AddEventModalStyles.css';
+import axios from "axios";
 
 export default function AddEventModal({ onClose }) {
     const [title, setTitle] = useState("");
@@ -9,27 +10,32 @@ export default function AddEventModal({ onClose }) {
     const [endTime, setEndTime] = useState("");
     const [date, setDate] = useState("");
     
-    
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        
-        try {
-          await axios.post("http://localhost:8080/event/addEvent", { title, description, host, startTime, endTime, date });
+      e.preventDefault();
+  
+     
+      const formattedDate = new Date(date).toISOString();
+      const formattedStartTime = new Date(`${date}T${startTime}`).toISOString();
+      const formattedEndTime = new Date(`${date}T${endTime}`).toISOString();
+      
+      try {
+         
+          await axios.post("http://localhost:8080/event/addEvent", {
+              title,
+              description,
+              host,
+              startTime: formattedStartTime,
+              endTime: formattedEndTime,
+              date: formattedDate
+          });
           alert("Event added successfully");
-          
-          setTitle("");
-          setDescription("");
-          setHost("");
-          setStartTime("");
-          setEndTime("");
-          setDate("");
-        } catch (error) {
+      } catch (error) {
           console.error(error);
           alert("Error occurred while adding event");
-        }
-        
-      };
+      }
+  };
+  
 
   return (
     <div className="modal">
