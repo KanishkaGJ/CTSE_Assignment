@@ -87,12 +87,12 @@ input[type="time"] {
   padding: 10px;
   background-color: #ffffff;
   color: #333; 
-  border: 2px solid #ff4545;
+  border: 2px solid #c36363;
   border-radius: 5px;
   cursor: pointer;
 }
 
 .submit-button:hover {
   background-color: #ececec;
-  border-color: #ff4545;
+  border-color: #c36363;
 }
