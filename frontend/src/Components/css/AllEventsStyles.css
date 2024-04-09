@@ -10,7 +10,7 @@
 
 .hero-section {
   position: relative; 
-  height: 370px;
+  height: 470px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,11 +40,13 @@
   text-align: center;
   color: white; 
 }
-.hero-heading{
+
+.hero-heading {
   font-family: "Inter", sans-serif;
   font-size: 2.5rem;
   letter-spacing: 0.3em;
 }
+
 .add-event-button {
   display: block;
   margin: 25px auto; 
@@ -53,7 +55,7 @@
   color: #343434; 
   font-size: 14px;
   font-family: "Inter", sans-serif;
-  border: 2px solid #ff4545; 
+  border: 2px solid #c36363; 
   border-radius: 5px; 
   cursor: pointer; 
   transition: background-color 0.3s, border-color 0.3s; 
@@ -61,7 +63,7 @@
 
 .add-event-button:hover {
   background-color: #ffffff; 
-  border-color: #ff4545; 
+  border-color: #c36363; 
 }
 
 .event-list {
@@ -86,13 +88,38 @@
   border-radius: 10px;
 }
 
+.date-column,
 .time-column,
 .host-column {
   flex: 1;
   padding: 0 5px; 
 }
-.time-column{
+
+.date-column {
+  font-size: 18px; 
+  font-weight: 600;
+}
+
+.date-box {
+  border: 1px solid #d48d8d;
+  border-radius: 5px;
+  padding: 5px 15px;
+  display: inline-block;
+  text-align: center;
+}
+
+.date-column .day {
+  color: #c36363; 
+  font-size: 22px;
+}
+
+.date-column .month {
+  color: #505050; 
   font-size: 14px;
+}
+
+.time-column {
+  font-size: 13px;
   font-weight: 600;
 }
 
@@ -101,6 +128,7 @@
   padding: 0 5px;
   margin-left: 27px;
 }
+
 .title-description-column h2 {
   font-size: 1.3rem; 
   color: #1E1C1C; 
@@ -112,10 +140,6 @@
   color: #5d5d5d; 
   line-height: 1.5; 
 }
-hr {
-  width: 100%;
-  border: none;
-  border-top: 1px solid #ff4545;
+.host-column{
+  font-size: 14px;
 }
-
-

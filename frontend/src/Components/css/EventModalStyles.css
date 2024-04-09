@@ -86,7 +86,7 @@
 .delete-button {
   width: 45%; 
   background-color: #ffffff; 
-  border: 2px solid #ff4545; 
+  border: 2px solid #c36363; 
   border-radius: 10px;
   color: black;
   padding: 15px 0;
@@ -100,7 +100,7 @@
 }
 
 .delete-button {
-  background-color: #ff4545; 
+  background-color: #c36363; 
   color: white;
 }
 
