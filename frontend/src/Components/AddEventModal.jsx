@@ -13,28 +13,31 @@ export default function AddEventModal({ onClose }) {
 
     const handleSubmit = async (e) => {
       e.preventDefault();
-  
-     
+    
       const formattedDate = new Date(date).toISOString();
       const formattedStartTime = new Date(`${date}T${startTime}`).toISOString();
       const formattedEndTime = new Date(`${date}T${endTime}`).toISOString();
       
       try {
-         
-          await axios.post("http://localhost:8080/event/addEvent", {
-              title,
-              description,
-              host,
-              startTime: formattedStartTime,
-              endTime: formattedEndTime,
-              date: formattedDate
-          });
-          alert("Event added successfully");
+        await axios.post("http://localhost:8080/event/addEvent", {
+          title,
+          description,
+          host,
+          startTime: formattedStartTime,
+          endTime: formattedEndTime,
+          date: formattedDate
+        });
+        alert("Event added successfully");
+       
+        onClose();
+     
+        window.location.reload();
       } catch (error) {
-          console.error(error);
-          alert("Error occurred while adding event");
+        console.error(error);
+        alert("Error occurred while adding event");
       }
-  };
+    };
+    
   
 
   return (
