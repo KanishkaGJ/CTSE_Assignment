@@ -16,13 +16,14 @@ jobs:
     - name: Build and test frontend
       run: |
         docker build -t ctse_assignment-frontend:latest ./frontend
-        # Run tests here if applicable
+        docker images  
+        
 
     - name: Build and test backend
       run: |
         docker build -t ctse_assignment-backend:latest ./backend
-        # Run tests here if applicable
-
+        docker images  
+        
   deploy:
     runs-on: ubuntu-latest
 
