@@ -36,7 +36,7 @@ jobs:
       run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
     - name: Push frontend image to Docker Hub
-      run: docker push ctse_assignment-frontend:latest
+      run: docker push frontend:latest
 
     - name: Push backend image to Docker Hub
-      run: docker push ctse_assignment-backend:latest
+      run: docker push backend:latest
