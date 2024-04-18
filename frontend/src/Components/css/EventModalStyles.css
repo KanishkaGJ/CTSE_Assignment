@@ -1,0 +1,111 @@
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background-color: #f2f2f2;
+  padding: 30px;
+  border-radius: 15px;
+  width: 80%;
+  max-width: 600px;
+  height: auto;
+  max-height: 80%;
+  overflow: auto;
+  font-family: "Inter", sans-serif; /* Apply Inter font style */
+}
+
+.modal-content {
+  position: relative;
+  margin: 0 auto;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  color: #333;
+}
+
+.horizontal-line {
+  margin: 20px 0;
+  border-top: 1px solid #ccc;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.5rem; 
+  color: #333; 
+}
+
+.description {
+  margin-bottom: 20px;
+  text-align:center;
+}
+
+.date-time {
+  margin-bottom: 10px;
+}
+
+.event-details {
+  display: flex;
+}
+
+.time {
+  background-color: #fff;
+  padding: 15px;
+  border: 2px solid #c4c4c4; 
+  border-radius: 10px;
+  margin-bottom: 10px;
+  margin-right: 30px;
+  flex: 1;
+}
+.host-date{
+  flex: 1;
+}
+.host{
+  border: 2px solid #c4c4c4; 
+  border-radius: 5px; 
+  background-color: #ffffff;
+  margin-bottom: 16px;
+  padding-left: 15px;
+}
+.date{
+  border: 2px solid #c4c4c4; 
+  border-radius: 5px; 
+  background-color: #ffffff;
+  padding-left: 15px;
+}
+.buttons-container {
+  display: flex;
+}
+
+.edit-button,
+.delete-button {
+  width: 45%; 
+  background-color: #ffffff; 
+  border: 2px solid #c36363; 
+  border-radius: 10px;
+  color: black;
+  padding: 15px 0;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 2.5%; 
+  cursor: pointer;
+  
+}
+
+.delete-button {
+  background-color: #c36363; 
+  color: white;
+}
+
+.edit-button:hover,
+.delete-button:hover {
+  opacity: 0.8;
+}
+

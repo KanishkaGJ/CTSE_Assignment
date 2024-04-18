@@ -18,12 +18,16 @@ const eventSchema = new Schema({
     },
     startTime:{
         type: Date,
-        required: true
+        
     },
     endTime:{
         type: Date,
-        required: true
+        
     },
+    date:{
+        type: Date,
+        
+    }
 })
 
 const Event = mongoose.model("Event", eventSchema);
