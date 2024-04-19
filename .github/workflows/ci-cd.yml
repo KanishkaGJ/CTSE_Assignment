@@ -15,21 +15,23 @@ jobs:
 
     - name: Build and test frontend
       run: |
-        docker build -t ctse_assignment-frontend:latest ./frontend
-        docker images  
+        docker build -t sandalidisara/ctse_assignment-frontend:latest ./frontend
+        docker images
 
-    - name: Tag frontend image
-      run: |
-        docker tag ctse_assignment-frontend:latest "${{ secrets.DOCKER_USERNAME }}/ctse_assignment-frontend:latest"
+    #comment for testing
+    # - name: Tag frontend image
+    #   run: |
+    #     docker tag ctse_assignment-frontend:latest "${{ secrets.DOCKER_USERNAME }}/ctse_assignment-frontend:latest"
 
     - name: Build and test backend
       run: |
-        docker build -t ctse_assignment-backend:latest ./backend
-        docker images  
+        docker build -t sandalidisara/ctse_assignment-backend:latest ./backend
+        docker images
 
-    - name: Tag backend image
-      run: |
-        docker tag ctse_assignment-backend:latest "${{ secrets.DOCKER_USERNAME }}/ctse_assignment-backend:latest"
+    #comment for testing
+    # - name: Tag backend image
+    #   run: |
+    #     docker tag ctse_assignment-backend:latest "${{ secrets.DOCKER_USERNAME }}/ctse_assignment-backend:latest"
         
   deploy:
     runs-on: ubuntu-latest
