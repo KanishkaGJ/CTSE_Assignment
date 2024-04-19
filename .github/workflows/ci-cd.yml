@@ -15,7 +15,7 @@ jobs:
 
     - name: Build and test frontend
       run: |
-        docker build -t sandalidisara/ctse_assignment-frontend:latest ./frontend
+        docker build -t sandalidisara/event_mng_ctse:latest-frontend ./frontend
         docker images
 
     #comment for testing
@@ -25,7 +25,7 @@ jobs:
 
     - name: Build and test backend
       run: |
-        docker build -t sandalidisara/ctse_assignment-backend:latest ./backend
+        docker build -t sandalidisara/event_mng_ctse:latest-backend ./backend
         docker images
 
     #comment for testing
@@ -46,7 +46,7 @@ jobs:
       run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u sandalidisara --password-stdin
 
     - name: Push frontend image to Docker Hub
-      run: docker push sandalidisara/ctse_assignment-frontend:latest
+      run: docker push sandalidisara/event_mng_ctse:latest-frontend
 
     - name: Push backend image to Docker Hub
-      run: docker push sandalidisara/ctse_assignment-backend:latest
+      run: docker push sandalidisara/event_mng_ctse:latest-backend
