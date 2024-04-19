@@ -15,7 +15,7 @@ jobs:
 
     - name: Build and test frontend
       run: |
-        docker build -t sandalidisara/event_mng_ctse:latest-frontend ./frontend
+        docker build -f frontend/Dockerfile -t sandalidisara/event_mng_ctse:latest-frontend .
         docker images
 
     #comment for testing
@@ -25,7 +25,7 @@ jobs:
 
     - name: Build and test backend
       run: |
-        docker build -t sandalidisara/event_mng_ctse:latest-backend ./backend
+        docker build -f backend/Dockerfile -t sandalidisara/event_mng_ctse:latest-backend .
         docker images
 
     #comment for testing
