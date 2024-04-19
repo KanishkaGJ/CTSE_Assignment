@@ -2,12 +2,13 @@
 FROM node:16-alpine
 
 # Set the working directory in the container
-WORKDIR /app/backend
+WORKDIR /usr/src/app
 
-RUN git clone https://github.com/KanishkaGJ/CTSE_Assignment -b main /app/backend
+# RUN git clone https://github.com/KanishkaGJ/CTSE_Assignment -b main /usr/src/app
 
 # Copy the current directory contents into the container at /usr/src/app
 # COPY package*.json ./
+ADD package*.json ./
 
 # Install any needed packages specified in package.json
 RUN npm install
