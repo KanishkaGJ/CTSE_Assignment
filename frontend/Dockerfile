@@ -4,8 +4,10 @@ FROM node:latest
 # Set the working directory inside the container
 WORKDIR /app/frontend
 
+RUN git clone https://github.com/KanishkaGJ/CTSE_Assignment -b main /app/frontend
+
 # Copy package.json and package-lock.json to the working directory
-COPY package*.json ./
+# COPY package*.json ./
 
 # Install dependencies
 RUN npm install
