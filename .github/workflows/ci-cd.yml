@@ -15,12 +15,12 @@ jobs:
 
     - name: Build and test frontend
       run: |
-        docker build -t frontend_image sandalidisara/frontend_event_mng:latest ./frontend
+        docker build -t frontend_event_mng sandalidisara/frontend_event_mng:latest ./frontend
         docker images  
 
     - name: Build and test backend
       run: |
-        docker build -t backend_image sandalidisara/backend_event_mng:latest ./backend
+        docker build -t backend_event_mng sandalidisara/backend_event_mng:latest ./backend
         docker images  
 
   deploy:
@@ -44,3 +44,6 @@ jobs:
       run: |
         docker tag backend_image sandalidisara/backend_event_mng:latest
         docker push sandalidisara/backend_event_mng:latest
+  
+  
+
