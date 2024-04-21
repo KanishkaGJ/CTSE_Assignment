@@ -26,6 +26,8 @@ jobs:
   Test-Deploy:
     runs-on: ubuntu-latest
 
+    needs: build
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -53,10 +55,10 @@ jobs:
 
     - name: Tag and push frontend image to Docker Hub
       run: |
-        docker tag frontend_event_mng sandalidisara/frontend_event_mng:latest
+        docker tag sandalidisara/frontend_event_mng:latest sandalidisara/frontend_event_mng:latest
         docker push sandalidisara/frontend_event_mng:latest
 
     - name: Tag and push backend image to Docker Hub
       run: |
-        docker tag backend_event_mng sandalidisara/backend_event_mng:latest
+        docker tag sandalidisara/backend_event_mng:latest sandalidisara/backend_event_mng:latest
         docker push sandalidisara/backend_event_mng:latest
