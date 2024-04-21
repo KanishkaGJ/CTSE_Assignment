@@ -53,10 +53,10 @@ jobs:
 
     - name: Tag and push frontend image to Docker Hub
       run: |
-        docker tag frontend_image sandalidisara/frontend_event_mng:latest
+        docker tag frontend_event_mng sandalidisara/frontend_event_mng:latest
         docker push sandalidisara/frontend_event_mng:latest
 
     - name: Tag and push backend image to Docker Hub
       run: |
-        docker tag backend_image sandalidisara/backend_event_mng:latest
+        docker tag backend_event_mng sandalidisara/backend_event_mng:latest
         docker push sandalidisara/backend_event_mng:latest
