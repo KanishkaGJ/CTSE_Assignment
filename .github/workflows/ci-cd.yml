@@ -15,12 +15,12 @@ jobs:
 
     - name: Build and test frontend
       run: |
-        docker build -t sandalidisara/frontend_event_mng:latest ./frontend
+        docker build -t frontend_image sandalidisara/frontend_event_mng:latest ./frontend
         docker images  
 
     - name: Build and test backend
       run: |
-        docker build -t sandalidisara/backend_event_mng:latest ./backend
+        docker build -t backend_image sandalidisara/backend_event_mng:latest ./backend
         docker images  
 
   deploy:
@@ -35,8 +35,12 @@ jobs:
     - name: Log in to Docker Hub
       run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u sandalidisara --password-stdin
 
-    - name: Push frontend image to Docker Hub
-      run: docker push sandalidisara/frontend_event_mng:latest
+    - name: Tag and push frontend image to Docker Hub
+      run: |
+        docker tag frontend_image sandalidisara/frontend_event_mng:latest
+        docker push sandalidisara/frontend_event_mng:latest
 
-    - name: Push backend image to Docker Hub
-      run: docker push sandalidisara/backend_event_mng:latest
+    - name: Tag and push backend image to Docker Hub
+      run: |
+        docker tag backend_image sandalidisara/backend_event_mng:latest
+        docker push sandalidisara/backend_event_mng:latest
