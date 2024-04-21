@@ -36,7 +36,7 @@ jobs:
       run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u sandalidisara --password-stdin
 
     - name: Push frontend image to Docker Hub
-      run: docker push sandalidisara/frontend_event_mng:latest
+      run: docker push docker.io/sandalidisara/frontend_event_mng:latest
 
     - name: Push backend image to Docker Hub
-      run: docker push sandalidisara/backend_event_mng:latest
+      run: docker push docker.io/sandalidisara/backend_event_mng:latest
