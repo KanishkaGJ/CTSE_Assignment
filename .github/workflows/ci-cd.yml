@@ -15,21 +15,13 @@ jobs:
 
     - name: Build and test frontend
       run: |
-        docker build -t ctse_assignment-frontend:latest ./frontend
+        docker build -t sandalidisara/frontend_event_mng:latest ./frontend
         docker images  
-
-    - name: Tag frontend image
-      run: |
-        docker tag ctse_assignment-frontend:latest sandalidisara/frontend_event_mng:latest
 
     - name: Build and test backend
       run: |
-        docker build -t ctse_assignment-backend:latest ./backend
+        docker build -t sandalidisara/backend_event_mng:latest ./backend
         docker images  
-
-    - name: Tag backend image
-      run: |
-        docker tag ctse_assignment-backend:latest sandalidisara/backend_event_mng:latest
 
   deploy:
     runs-on: ubuntu-latest
