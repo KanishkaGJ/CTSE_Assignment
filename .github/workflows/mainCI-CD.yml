@@ -7,43 +7,41 @@ on:
 
 jobs:
   build:
-  runs-on: ubuntu-latest
-  defaults:
-    run:
-      shell: bash --login {0}
-  steps:
-    - name: Use Node.js version 20
-      uses: actions/setup-node@v2
-      with:
-        node-version: '20.x'
-    - name: Checkout code
-      uses: actions/checkout@v2
-    - name: Build frontend
-      run: |
-        docker build -t sandalidisara/frontend_event_mng:latest ./frontend
-    - name: Build backend
-      run: |
-        docker build -t sandalidisara/backend_event_mng:latest ./backend 
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash --login {0}
+    steps:
+      - name: Use Node.js version 20
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20.x'
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Build frontend
+        run: |
+          docker build -t sandalidisara/frontend-event-mng:latest ./frontend
+      - name: Build backend
+        run: |
+          docker build -t sandalidisara/backend-event-mng:latest ./backend
 
   deploy:
-  runs-on: ubuntu-latest
-  needs: build
-  steps:
-    - name: Use Node.js version 20
-      uses: actions/setup-node@v2
-      with:
-        node-version: '20.x'
-    - name: Checkout code
-      uses: actions/checkout@v2
-    - name: Log in to Docker Hub
-      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u sandalidisara --password-stdin
-    - name: Tag and push frontend image to Docker Hub
-      run: |
-        docker tag sandalidisara/frontend_event_mng:latest sandalidisara/frontend_event_mng:latest
-        docker push sandalidisara/frontend_event_mng:latest
-    - name: Tag and push backend image to Docker Hub
-      run: |
-        docker tag sandalidisara/backend_event_mng:latest sandalidisara/backend_event_mng:latest
-        docker push sandalidisara/backend_event_mng:latest 
-
-  
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Use Node.js version 20
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20.x'
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Log in to Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u sandalidisara --password-stdin
+      - name: Tag and push frontend image to Docker Hub
+        run: |
+          docker tag sandalidisara/frontend-event-mng:latest sandalidisara/frontend-event-mng:latest
+          docker push sandalidisara/frontend-event-mng:latest
+      - name: Tag and push backend image to Docker Hub
+        run: |
+          docker tag sandalidisara/backend-event-mng:latest sandalidisara/backend-event-mng:latest
+          docker push sandalidisara/backend-event-mng:latest
