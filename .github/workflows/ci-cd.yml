@@ -18,18 +18,10 @@ jobs:
         docker build -t sandalidisara/frontend_event_mng:latest ./frontend
         docker images  
 
-    - name: Tag frontend image
-      run: |
-        docker tag sandalidisara/frontend_event_mng:latest sandalidisara/frontend_event_mng:latest
-
     - name: Build and test backend
       run: |
         docker build -t sandalidisara/backend_event_mng:latest ./backend
         docker images  
-
-    - name: Tag backend image
-      run: |
-        docker tag sandalidisara/backend_event_mng:latest sandalidisara/backend_event_mng:latest
 
   deploy:
     runs-on: ubuntu-latest
