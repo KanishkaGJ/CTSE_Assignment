@@ -24,6 +24,12 @@ jobs:
       - name: Build backend
         run: |
           docker build -t sandalidisara/backend-event-mng:latest ./backend
+      - name: Login to Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u sandalidisara --password-stdin
+      - name: Push frontend image to Docker Hub
+        run: docker push sandalidisara/frontend-event-mng:latest
+      - name: Push backend image to Docker Hub
+        run: docker push sandalidisara/backend-event-mng:latest
 
   deploy:
     runs-on: ubuntu-latest
@@ -37,6 +43,10 @@ jobs:
         uses: actions/checkout@v2
       - name: Log in to Docker Hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u sandalidisara --password-stdin
+      - name: Pull frontend image from Docker Hub
+        run: docker pull sandalidisara/frontend-event-mng:latest
+      - name: Pull backend image from Docker Hub
+        run: docker pull sandalidisara/backend-event-mng:latest
       - name: Tag and push frontend image to Docker Hub
         run: |
           docker tag sandalidisara/frontend-event-mng:latest sandalidisara/frontend-event-mng:latest
