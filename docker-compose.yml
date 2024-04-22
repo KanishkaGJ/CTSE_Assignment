@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   frontend:
     build:
@@ -13,7 +13,7 @@ services:
       context: ./backend/event-service
       dockerfile: Dockerfile
     ports:
-      - "8080:8080"
+      - "8070:8070"
     environment:
       - MONGO_URI=mongodb://mongo:27017/cluster0
   mongo:

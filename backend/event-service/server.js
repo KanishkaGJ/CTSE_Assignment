@@ -6,23 +6,23 @@ const dotenv = require("dotenv");
 const app = express();
 require("dotenv").config();
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8070;
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
 
-
 //connect database
 const URL = process.env.MONGODB_URL;
 
-mongoose.connect(URL, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose
+  .connect(URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
-    console.log('Connected to database!');
+    console.log("Connected to database!");
     // add your code here
   })
   .catch((err) => {
-    console.error('Failed to connect to database', err);
+    console.error("Failed to connect to database", err);
   });
 
 app.listen(PORT, () => {
