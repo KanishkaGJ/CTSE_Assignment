@@ -18,14 +18,17 @@ export default function EditEventModal({ event, onClose }) {
     const formattedEndTime = new Date(`${date}T${endTime}`).toISOString();
 
     try {
-      await axios.put(`http://localhost:8070/event/eventUpdate/${event._id}`, {
-        title,
-        description,
-        host,
-        startTime: formattedStartTime,
-        endTime: formattedEndTime,
-        date: formattedDate,
-      });
+      await axios.put(
+        `https://ctse-event-service-backend-d.azurewebsites.net/event/eventUpdate/${event._id}`,
+        {
+          title,
+          description,
+          host,
+          startTime: formattedStartTime,
+          endTime: formattedEndTime,
+          date: formattedDate,
+        }
+      );
       alert("Event updated successfully");
 
       onClose();

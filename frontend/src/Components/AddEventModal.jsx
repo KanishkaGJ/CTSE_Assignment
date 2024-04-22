@@ -18,14 +18,17 @@ export default function AddEventModal({ onClose }) {
     const formattedEndTime = new Date(`${date}T${endTime}`).toISOString();
 
     try {
-      await axios.post("http://localhost:8070/event/addEvent", {
-        title,
-        description,
-        host,
-        startTime: formattedStartTime,
-        endTime: formattedEndTime,
-        date: formattedDate,
-      });
+      await axios.post(
+        "https://ctse-event-service-backend-d.azurewebsites.net/event/addEvent",
+        {
+          title,
+          description,
+          host,
+          startTime: formattedStartTime,
+          endTime: formattedEndTime,
+          date: formattedDate,
+        }
+      );
       alert("Event added successfully");
 
       onClose();
