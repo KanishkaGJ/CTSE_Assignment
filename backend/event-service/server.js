@@ -13,7 +13,8 @@ app.use(bodyParser.json());
 app.use(express.json());
 
 //connect database
-const URL = process.env.MONGODB_URL;
+const URL =
+  "mongodb+srv://sandali:san345@cluster0.sgrgw3h.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 mongoose
   .connect(URL, { useNewUrlParser: true, useUnifiedTopology: true })
