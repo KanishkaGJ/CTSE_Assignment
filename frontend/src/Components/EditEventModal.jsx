@@ -19,7 +19,7 @@ export default function EditEventModal({ event, onClose }) {
 
     try {
       await axios.put(
-        `https://ctse-event-service-backend-d.azurewebsites.net/event/eventUpdate/${event._id}`,
+        `https://ctse-backend.azurewebsites.net/event/eventUpdate/${event._id}`,
         {
           title,
           description,

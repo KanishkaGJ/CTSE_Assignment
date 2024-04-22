@@ -15,7 +15,7 @@ export default function AllEvents() {
     const fetchEvents = async () => {
       try {
         const response = await axios.get(
-          "https://ctse-event-service-backend-d.azurewebsites.net/event/eventsList"
+          "https://ctse-backend.azurewebsites.net/event/eventsList"
         );
         setEvents(response.data);
       } catch (error) {

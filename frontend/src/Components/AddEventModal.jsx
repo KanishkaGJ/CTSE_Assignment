@@ -19,7 +19,7 @@ export default function AddEventModal({ onClose }) {
 
     try {
       await axios.post(
-        "https://ctse-event-service-backend-d.azurewebsites.net/event/addEvent",
+        "https://ctse-backend.azurewebsites.net/event/addEvent",
         {
           title,
           description,

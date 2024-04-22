@@ -33,7 +33,7 @@ export default function EventModal({ event, onClose }) {
     if (window.confirm("Are you sure you want to delete this event?")) {
       try {
         await axios.delete(
-          `https://ctse-event-service-backend-d.azurewebsites.net/event/eventDelete/${event._id}`
+          `https://ctse-backend.azurewebsites.net/event/eventDelete/${event._id}`
         );
         alert("Event deleted successfully.");
         onClose();
