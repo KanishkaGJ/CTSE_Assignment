@@ -7,10 +7,10 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - backend
-  backend:
+      - eventservice
+  eventservice:
     build:
-      context: ./backend
+      context: ./backend/event-service
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
