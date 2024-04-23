@@ -21,3 +21,5 @@ EXPOSE 8070
 # Run the app when the container launches
 CMD ["npm", "start"]
 
+#Check CICD build and deploy of the event-service microservice
+
